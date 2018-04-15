@@ -219,11 +219,11 @@ var AppModule = /** @class */ (function () {
 var appRoutes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_13__views_home_home_component__["a" /* HomeComponent */] },
-    { path: 'loggedinhome/users/:uid', component: __WEBPACK_IMPORTED_MODULE_17__views_home_loggedin_home_loggedin_home_component__["a" /* LoggedinHomeComponent */] },
+    { path: 'loggedinhome/user', component: __WEBPACK_IMPORTED_MODULE_17__views_home_loggedin_home_loggedin_home_component__["a" /* LoggedinHomeComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_1__views_users_login_login_component__["a" /* LoginComponent */] },
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_2__views_users_register_register_component__["a" /* RegisterComponent */] },
     { path: 'user/admin/:uid', component: __WEBPACK_IMPORTED_MODULE_16__views_admin_admin_profile_admin_profile_component__["a" /* AdminProfileComponent */] },
-    { path: 'user/buyer/:uid', component: __WEBPACK_IMPORTED_MODULE_7__views_users_profile_buyer_profile_buyer_profile_component__["a" /* BuyerProfileComponent */] },
+    { path: 'user/buyer', component: __WEBPACK_IMPORTED_MODULE_7__views_users_profile_buyer_profile_buyer_profile_component__["a" /* BuyerProfileComponent */] },
     { path: 'user/seller/:uid', component: __WEBPACK_IMPORTED_MODULE_8__views_users_profile_seller_profile_seller_profile_component__["a" /* SellerProfileComponent */] },
     { path: 'user/admin/:uid/edititem', component: __WEBPACK_IMPORTED_MODULE_3__views_admin_admin_item_edit_admin_item_edit_component__["a" /* AdminItemEditComponent */] },
     { path: 'user/admin/:uid/edituser', component: __WEBPACK_IMPORTED_MODULE_4__views_admin_admin_user_edit_admin_user_edit_component__["a" /* AdminUserEditComponent */] },
@@ -233,10 +233,10 @@ var appRoutes = [
     { path: 'user/buyer/:uid/cart', component: __WEBPACK_IMPORTED_MODULE_9__views_checkout_cart_cart_component__["a" /* CartComponent */] },
     { path: 'user/buyer/:uid/payment', component: __WEBPACK_IMPORTED_MODULE_10__views_checkout_payment_payment_component__["a" /* PaymentComponent */] },
     { path: 'user/buyer/:uid/summary', component: __WEBPACK_IMPORTED_MODULE_11__views_checkout_summary_summary_component__["a" /* SummaryComponent */] },
-    { path: 'user/buyer/:uid/history', component: __WEBPACK_IMPORTED_MODULE_12__views_users_profile_buyer_profile_order_history_order_history_component__["a" /* OrderHistoryComponent */] },
+    { path: 'user/buyer/history', component: __WEBPACK_IMPORTED_MODULE_12__views_users_profile_buyer_profile_order_history_order_history_component__["a" /* OrderHistoryComponent */] },
     { path: 'user/seller/:uid/history', component: __WEBPACK_IMPORTED_MODULE_15__views_users_profile_seller_profile_sale_history_sale_history_component__["a" /* SaleHistoryComponent */] },
     { path: 'user/seller/:uid/creditcard', component: __WEBPACK_IMPORTED_MODULE_18__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */] },
-    { path: 'user/buyer/:uid/creditcard', component: __WEBPACK_IMPORTED_MODULE_18__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */] },
+    { path: 'user/buyer/creditcard', component: __WEBPACK_IMPORTED_MODULE_18__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */] },
     { path: 'user/:uid/searchresult', component: __WEBPACK_IMPORTED_MODULE_14__views_item_item_list_item_list_component__["a" /* ItemListComponent */] },
     { path: 'user/guest/searchresult', component: __WEBPACK_IMPORTED_MODULE_14__views_item_item_list_item_list_component__["a" /* ItemListComponent */] },
     { path: 'user/guest/item/:iid', component: __WEBPACK_IMPORTED_MODULE_6__views_item_item_display_item_display_component__["a" /* ItemDisplayComponent */] },
@@ -1113,7 +1113,7 @@ var LoginComponent = /** @class */ (function () {
 /***/ "./src/app/views/users/profile/buyer-profile/buyer-profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\n<html lang=\"en\" xmlns=\"http://www.w3.org/1999/html\">\n<head>\n  <title>User Profile</title>\n</head>\n<body class=\"body-pink\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" href=\"#\"><i class=\"fa fa-chevron-left\"></i></a>\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\" routerLink=\"home\">S U P R E M E</a></span>\n\n  </div>\n</nav>\n\n<div class=\"supreme-font footer-padding\">\n<form (ngSubmit)=\"update()\" #f=\"ngForm\">\n  <label class=\"center-input\" style=\"padding-top:60px\">Username</label>\n  <input\n    [(ngModel)]=\"username\"\n    name=\"username\"\n    type=\"text\"\n    class=\"form-control center-input\"\n    placeholder=\"{{username}}\"/>\n  <label class=\"center-input\">First Name</label>\n  <input [(ngModel)]=\"firstName\"\n         name=\"firstName\"\n         type=\"text\"\n         class=\"form-control center-input\"\n         placeholder=\"{{firstName}}\"/>\n  <label class=\"center-input\">Last Name</label>\n  <input [(ngModel)]=\"lastName\"\n         name=\"lastName\"\n         type=\"text\"\n         class=\"form-control center-input\"\n         placeholder=\"{{lastName}}\"/>\n  <label class=\"center-input\">Phone</label>\n  <input  [(ngModel)]=\"phone\"\n          name=\"phone\"\n          type=\"text\"\n          class=\"form-control center-input\"\n          placeholder=\"{{phone}}\"/>\n  <label class=\"center-input\">Email</label>\n  <input [(ngModel)]=\"email\"\n         name=\"email\"\n         type=\"text\"\n         class=\"form-control center-input\"\n         placeholder=\"{{email}}\"/>\n  <br>\n  <button class=\"btn btn-outline-danger btn-block center-input\" type=\"submit\" style=\"color: white\">Update</button>\n  <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"updateCreditCard()\">Update Credit Card</a>\n  <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"showOrderHistory()\">Order History</a>\n  <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"logout()\">Log Out</a>\n  </form>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" routerLink=\"/user\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n"
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\" xmlns=\"http://www.w3.org/1999/html\">\n<head>\n  <title>User Profile</title>\n</head>\n<body class=\"body-pink\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" href=\"#\"><i class=\"fa fa-chevron-left\"></i></a>\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\" routerLink=\"/loggedinhome/user\">S U P R E M E</a></span>\n\n  </div>\n</nav>\n\n<div class=\"supreme-font footer-padding\">\n<form (ngSubmit)=\"update()\" #f=\"ngForm\">\n  <label class=\"center-input\" style=\"padding-top:60px\">Username</label>\n  <input\n    [(ngModel)]=\"username\"\n    name=\"username\"\n    type=\"text\"\n    class=\"form-control center-input\"\n    placeholder=\"{{username}}\"/>\n  <label class=\"center-input\">First Name</label>\n  <input [(ngModel)]=\"firstName\"\n         name=\"firstName\"\n         type=\"text\"\n         class=\"form-control center-input\"\n         placeholder=\"{{firstName}}\"/>\n  <label class=\"center-input\">Last Name</label>\n  <input [(ngModel)]=\"lastName\"\n         name=\"lastName\"\n         type=\"text\"\n         class=\"form-control center-input\"\n         placeholder=\"{{lastName}}\"/>\n  <label class=\"center-input\">Phone</label>\n  <input  [(ngModel)]=\"phone\"\n          name=\"phone\"\n          type=\"text\"\n          class=\"form-control center-input\"\n          placeholder=\"{{phone}}\"/>\n  <label class=\"center-input\">Email</label>\n  <input [(ngModel)]=\"email\"\n         name=\"email\"\n         type=\"text\"\n         class=\"form-control center-input\"\n         placeholder=\"{{email}}\"/>\n  <br>\n  <button class=\"btn btn-outline-danger btn-block center-input\" type=\"submit\" style=\"color: white\">Update</button>\n  <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"updateCreditCard()\">Update Credit Card</a>\n  <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"showOrderHistory()\">Order History</a>\n  <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"logout()\">Log Out</a>\n  </form>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" routerLink=\"/user/buyer\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n"
 
 /***/ }),
 
@@ -1184,10 +1184,10 @@ var BuyerProfileComponent = /** @class */ (function () {
         });
     };
     BuyerProfileComponent.prototype.updateCreditCard = function () {
-        this.router.navigate(['user/buyer/', this.userId, 'creditcard']);
+        this.router.navigate(['user/buyer/creditcard']);
     };
     BuyerProfileComponent.prototype.showOrderHistory = function () {
-        this.router.navigate(['user/buyer/', this.userId, 'history']);
+        this.router.navigate(['user/buyer/history']);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
@@ -1416,7 +1416,7 @@ var RegisterComponent = /** @class */ (function () {
             var user = { username: this.username, password: this.password, userType: this.userType };
             this.userService.register(this.username, this.password, this.userType).subscribe(function (data) {
                 _this.sharedService.user = data;
-                _this.router.navigate(['/user', _this.userType.toLowerCase(), data._id]);
+                _this.router.navigate(['/user', _this.userType.toLowerCase()]);
             }, function (error) {
                 _this.errorFlag = true;
                 _this.errorMsg = 'Username is in use';

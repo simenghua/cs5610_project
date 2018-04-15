@@ -66,10 +66,10 @@ export class BuyerProfileComponent implements OnInit {
   }
 
   updateCreditCard() {
-    this.router.navigate(['user/buyer/', this.userId, 'creditcard']);
+    this.router.navigate(['user/buyer/creditcard']);
   }
 
   showOrderHistory() {
-    this.router.navigate(['user/buyer/', this.userId, 'history']);
+    this.router.navigate(['user/buyer/history']);
   }
 }
