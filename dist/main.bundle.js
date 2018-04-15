@@ -222,22 +222,22 @@ var appRoutes = [
     { path: 'loggedinhome/user', component: __WEBPACK_IMPORTED_MODULE_17__views_home_loggedin_home_loggedin_home_component__["a" /* LoggedinHomeComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_1__views_users_login_login_component__["a" /* LoginComponent */] },
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_2__views_users_register_register_component__["a" /* RegisterComponent */] },
-    { path: 'user/admin/:uid', component: __WEBPACK_IMPORTED_MODULE_16__views_admin_admin_profile_admin_profile_component__["a" /* AdminProfileComponent */] },
+    { path: 'user/admin', component: __WEBPACK_IMPORTED_MODULE_16__views_admin_admin_profile_admin_profile_component__["a" /* AdminProfileComponent */] },
     { path: 'user/buyer', component: __WEBPACK_IMPORTED_MODULE_7__views_users_profile_buyer_profile_buyer_profile_component__["a" /* BuyerProfileComponent */] },
-    { path: 'user/seller/:uid', component: __WEBPACK_IMPORTED_MODULE_8__views_users_profile_seller_profile_seller_profile_component__["a" /* SellerProfileComponent */] },
+    { path: 'user/seller', component: __WEBPACK_IMPORTED_MODULE_8__views_users_profile_seller_profile_seller_profile_component__["a" /* SellerProfileComponent */] },
     { path: 'user/admin/:uid/edititem', component: __WEBPACK_IMPORTED_MODULE_3__views_admin_admin_item_edit_admin_item_edit_component__["a" /* AdminItemEditComponent */] },
     { path: 'user/admin/:uid/edituser', component: __WEBPACK_IMPORTED_MODULE_4__views_admin_admin_user_edit_admin_user_edit_component__["a" /* AdminUserEditComponent */] },
-    { path: 'user/seller/:uid/new', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */] },
-    { path: 'user/seller/:uid/item/:iid', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */] },
+    { path: 'user/seller/new', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */] },
+    { path: 'user/seller/item/:iid', component: __WEBPACK_IMPORTED_MODULE_5__views_item_item_edit_item_edit_component__["a" /* ItemEditComponent */] },
     { path: 'user/:uid/item/:iid', component: __WEBPACK_IMPORTED_MODULE_6__views_item_item_display_item_display_component__["a" /* ItemDisplayComponent */] },
     { path: 'user/buyer/:uid/cart', component: __WEBPACK_IMPORTED_MODULE_9__views_checkout_cart_cart_component__["a" /* CartComponent */] },
     { path: 'user/buyer/:uid/payment', component: __WEBPACK_IMPORTED_MODULE_10__views_checkout_payment_payment_component__["a" /* PaymentComponent */] },
     { path: 'user/buyer/:uid/summary', component: __WEBPACK_IMPORTED_MODULE_11__views_checkout_summary_summary_component__["a" /* SummaryComponent */] },
     { path: 'user/buyer/history', component: __WEBPACK_IMPORTED_MODULE_12__views_users_profile_buyer_profile_order_history_order_history_component__["a" /* OrderHistoryComponent */] },
-    { path: 'user/seller/:uid/history', component: __WEBPACK_IMPORTED_MODULE_15__views_users_profile_seller_profile_sale_history_sale_history_component__["a" /* SaleHistoryComponent */] },
-    { path: 'user/seller/:uid/creditcard', component: __WEBPACK_IMPORTED_MODULE_18__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */] },
+    { path: 'user/seller/history', component: __WEBPACK_IMPORTED_MODULE_15__views_users_profile_seller_profile_sale_history_sale_history_component__["a" /* SaleHistoryComponent */] },
+    { path: 'user/seller/creditcard', component: __WEBPACK_IMPORTED_MODULE_18__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */] },
     { path: 'user/buyer/creditcard', component: __WEBPACK_IMPORTED_MODULE_18__views_users_creditcard_creditcard_component__["a" /* CreditcardComponent */] },
-    { path: 'user/:uid/searchresult', component: __WEBPACK_IMPORTED_MODULE_14__views_item_item_list_item_list_component__["a" /* ItemListComponent */] },
+    { path: 'user/searchresult', component: __WEBPACK_IMPORTED_MODULE_14__views_item_item_list_item_list_component__["a" /* ItemListComponent */] },
     { path: 'user/guest/searchresult', component: __WEBPACK_IMPORTED_MODULE_14__views_item_item_list_item_list_component__["a" /* ItemListComponent */] },
     { path: 'user/guest/item/:iid', component: __WEBPACK_IMPORTED_MODULE_6__views_item_item_display_item_display_component__["a" /* ItemDisplayComponent */] },
 ];
@@ -399,7 +399,7 @@ var UserService = /** @class */ (function () {
 /***/ "./src/app/style.css":
 /***/ (function(module, exports) {
 
-module.exports = ".navbar-default {\n  color: white;\n  background-color: #E1282A;\n}\n\n.logo {\n  height: 10%;\n  width: 10%;\n  border: 1px solid black;\n}\n\n.btn-danger {\n  font-family: \"Courier New\";\n  font-weight: bold;\n  background-color: #E1282A;\n  border: 1px solid black;\n}\n\n.link-button:hover {\n  background-color: #E1282A;\n  border: 1px solid black;\n}\n\n.banner {\n  width: 100%;\n}\n\n.body-black {\n  background-color: black;\n}\n\n.center-search {\n  display: block;\n  margint-top: 100px;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.footer-color {\n  background-color: #E1282A;\n}\n\n.supreme-font {\n  font-family: \"Courier New\";\n  color:white;\n\n}\n\n.fa {\n  font-size: 15px;\n}\n\n.fa:hover{\n  color: black;\n}\n\n.white_text {\n  color: white;\n}\n\n.center_input {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 70%;\n  margin-bottom: 8px;\n}\n\n.center_text {\n  text-align: center;\n}\n\n.text-font-size {\n  font-size: 20px;\n}\n\n.input_padding {\n  padding-top: 10px;\n}\n\n.footer-padding {\n  margin-bottom: 100%;\n}\n\n.small-button {\n  width: 50%;\n  font-size: 10px;\n}\n\nbutton {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.a-no-hover:hover {\n  text-decoration: none;\n}\n\n.a-no-color {\n  color: white;\n}\n\n.a-no-visited:visited {\n  color: white;\n}\n\n.form-wrapper {\n  margin: 10px;\n  horiz-align: center;\n  border: 1px solid white;\n}\n\n.full-input {\n  border: 2px solid #E1282A;\n}\n\nlabel {\n  display: block;\n  font-size: 12px;\n  color: #E1282A;\n}\n\n.input-white-text {\n  color: white;\n}\n\n.left-border-white {\n  border-left: 1px solid white;\n}\n\n.corner-button {\n  position: fixed;\n  bottom: 90px;\n  right: 20px;\n  width: 40%;\n  horiz-align: center;\n}\n\n.supreme-text-logo {\n  font-size: 20px;\n  padding-left: 20px\n}\n\n.img-display-size {\n  height: 300px;\n  width: 300px;\n}\n\n.center-image {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n\n}\n\n.black-card {\n  background: black;\n}\n\n.header-margin-bottom{\n  margin-bottom: 20px;\n}\n\n.btn-outline-danger{\n  color:#E1282A;\n}\n\n.left-column{\n  width:25%;\n  height: 100%;\n  float:left;\n}\n\n.right-column{\n  height: 100%;\n}\n\n.full-border {\n  border: 2px solid #E1282A;\n}\n\n.bottom-button {\n  margin-bottom:20px;\n}\n\n.big-box {\n  margin: 2% 3% 3%;\n}\n\n.item-text {\n  color: black;\n  font-family: \"Courier New\";\n}\n\nhtml, body{\n  height: 100%;\n}\n\n.pagination {\n  margin: 50px;\n  display: inline-block;\n}\n\n.pagination a {\n  color: #E1282A;\n  float: left;\n  padding: 8px 16px;\n  text-decoration: none;\n  -webkit-transition: background-color .3s;\n  transition: background-color .3s;\n  border: 1px solid #E1282A;\n}\n\n.pagination a:hover:not(.active) {background-color: white;}\n\n.card-columns{\n  padding-top:10px;\n  margin-bottom: 50px;\n}\n\n.text-black{\n  color: black;\n}\n"
+module.exports = ".navbar-default {\n  color: white;\n  background-color: #E1282A;\n}\n\n.logo {\n  height: 10%;\n  width: 10%;\n  border: 1px solid black;\n}\n\n.btn-danger {\n  font-family: \"Courier New\";\n  font-weight: bold;\n  background-color: #E1282A;\n  border: 1px solid black;\n}\n\n.link-button:hover {\n  background-color: #E1282A;\n  border: 1px solid black;\n}\n\n.banner {\n  width: 100%;\n}\n\n.body-black {\n  background-color: black;\n}\n\n.center-search {\n  display: block;\n  margint-top: 100px;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.footer-color {\n  background-color: #E1282A;\n}\n\n.supreme-font {\n  font-family: \"Courier New\";\n  color:white;\n\n}\n\n.fa {\n  font-size: 15px;\n}\n\n.fa:hover{\n  color: black;\n}\n\n.white_text {\n  color: white;\n}\n\n.center_input {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 70%;\n  margin-bottom: 8px;\n}\n\n.center_text {\n  text-align: center;\n}\n\n.text-font-size {\n  font-size: 20px;\n}\n\n.input_padding {\n  padding-top: 10px;\n}\n\n.footer-padding {\n  margin-bottom: 200px;\n}\n\n.small-button {\n  width: 50%;\n  font-size: 10px;\n}\n\nbutton {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.a-no-hover:hover {\n  text-decoration: none;\n}\n\n.a-no-color {\n  color: white;\n}\n\n.a-no-visited:visited {\n  color: white;\n}\n\n.form-wrapper {\n  margin: 10px;\n  horiz-align: center;\n  border: 1px solid white;\n}\n\n.full-input {\n  border: 2px solid #E1282A;\n}\n\nlabel {\n  display: block;\n  font-size: 12px;\n  color: #E1282A;\n}\n\n.input-white-text {\n  color: white;\n}\n\n.left-border-white {\n  border-left: 1px solid white;\n}\n\n.corner-button {\n  position: fixed;\n  bottom: 90px;\n  right: 20px;\n  width: 40%;\n  horiz-align: center;\n}\n\n.supreme-text-logo {\n  font-size: 20px;\n  padding-left: 20px\n}\n\n.img-display-size {\n  height: 300px;\n  width: 300px;\n}\n\n.center-image {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n\n}\n\n.black-card {\n  background: black;\n}\n\n.header-margin-bottom{\n  margin-bottom: 20px;\n}\n\n.btn-outline-danger{\n  color:#E1282A;\n}\n\n.left-column{\n  width:25%;\n  height: 100%;\n  float:left;\n}\n\n.right-column{\n  height: 100%;\n}\n\n.full-border {\n  border: 2px solid #E1282A;\n}\n\n.bottom-button {\n  margin-bottom:20px;\n}\n\n.big-box {\n  margin: 2% 3% 3%;\n}\n\n.item-text {\n  color: black;\n  font-family: \"Courier New\";\n}\n\nhtml, body{\n  height: 100%;\n}\n\n.pagination {\n  margin: 50px;\n  display: inline-block;\n}\n\n.pagination a {\n  color: #E1282A;\n  float: left;\n  padding: 8px 16px;\n  text-decoration: none;\n  -webkit-transition: background-color .3s;\n  transition: background-color .3s;\n  border: 1px solid #E1282A;\n}\n\n.pagination a:hover:not(.active) {background-color: white;}\n\n.card-columns{\n  padding-top:10px;\n  margin-bottom: 50px;\n}\n\n.text-black{\n  color: black;\n}\n"
 
 /***/ }),
 
@@ -710,17 +710,10 @@ var SummaryComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/views/home/home.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  home works!\n</p>\n"
+module.exports = "<head>\n    <title>home</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default\">\n    <span class=\"supreme-font\">S U P R E M E</span>\n    <div>\n        <a class=\"btn btn-danger pull-right link-button\" routerLink=\"/login\" style=\"margin-left: 5px\">Login</a>\n        <a class=\"btn btn-danger pull-right link-button\" routerLink=\"/register\">Register</a>\n    </div>\n</nav>\n\n<div id=\"carouselExampleControls\" class=\"carousel slide\" data-ride=\"carousel\">\n    <div class=\"carousel-inner\" style=\"height:270px\">\n        <div class=\"carousel-item active\">\n            <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_lv.jpg\" alt=\"First slide\">\n        </div>\n        <div class=\"carousel-item\">\n            <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_rimova.jpg\" alt=\"Second slide\">\n        </div>\n        <div class=\"carousel-item\">\n            <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_tnf.jpg\" alt=\"Third slide\">\n        </div>\n    </div>\n    <a class=\"carousel-control-prev\" href=\"#carouselExampleControls\" role=\"button\" data-slide=\"prev\">\n        <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n        <span class=\"sr-only\">Previous</span>\n    </a>\n    <a class=\"carousel-control-next\" href=\"#carouselExampleControls\" role=\"button\" data-slide=\"next\">\n        <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n        <span class=\"sr-only\">Next</span>\n    </a>\n</div>\n\n<div style=\"margin-top: 10px\">\n    <div>\n        <form style=\"padding-left: 30%\">\n            <input class=\"col-7\" type=\"text\" placeholder=\"Search..\" name=\"search\">\n            <button type=\"submit\"><i class=\"fa fa-search\"></i></button>\n        </form>\n    </div>\n</div>\n\n<div class=\"card-columns\" style=\"padding-top: 10px\">\n   <div class=\"card text-center\">\n    <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n    <img class=\"card-img-top\" src=\"../../../assets/Top.png\" alt=\"Card image cap\" href=\"user/searchresult\">\n    </a>\n    <div class=\"card-body\">\n       <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Top</h5>\n    </div>\n\n   </div>\n    <div class=\"card p-3 text-center\">\n      <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Sweatshirt.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Sweatshirt</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Accessory.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Accessory</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center p-3\">\n      <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Jacket.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Jacket</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Skate.jpg\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Skate</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Pant.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Pants</h5>\n        </div>\n    </div>\n\n    <div class=\"card p-3 text-center\">\n      <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Bag.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Bag</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Hat.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Hat</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Shirt.png\" alt=\"Card image cap\">\n       </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Hat</h5>\n        </div>\n    </div>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n    <a class=\"pull-right white_text\" href=\".\"><i class=\"fa fa-user\" style=\"color: #E1282A\"></i></a>\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -749,7 +742,7 @@ var HomeComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-home',
             template: __webpack_require__("./src/app/views/home/home.component.html"),
-            styles: [__webpack_require__("./src/app/views/home/home.component.css")]
+            styles: [__webpack_require__("./src/app/style.css")]
         }),
         __metadata("design:paramtypes", [])
     ], HomeComponent);
@@ -1060,17 +1053,10 @@ var CreditcardComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/views/users/login/login.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/users/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  login works!\n</p>\n"
+module.exports = "<head>\n  <title>login</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/home\">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger\">\n  {{errorMsg}}\n</div>\n<div class=\"supreme-font footer-padding\">\n  <p class=\"center_text\">Login</p >\n  <form (ngSubmit)=\"login()\" #f=\"ngForm\">\n    <label class=\"center_input white_text\">Username</label>\n    <input placeholder=\"Username\"\n           name=\"username\"\n           type=\"text\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #username=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!username.valid && username.touched\">\n      Please enter username!\n      </span>\n    <label class=\"center_input white_text\">Password</label>\n    <input placeholder=\"Password\"\n           name=\"password\"\n           type=\"password\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #password=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!password.valid && password.touched\">\n      Please enter password!\n      </span>\n    <div>\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" type=\"submit\"\n              [disabled]=\"!f.valid\">\n        Login\n      </button>\n\n      <button class=\"btn btn-outline-danger btn-block center_input\" type=\"button\" (click)=\"register()\" style=\"color: white\">Register</button>\n\n      <a href=\" \" class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white\"> <span class=\"fa fa-facebook\" style=\"color: white\"></span>Facebook</a >\n\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" routerLink=\"/home\">Cancel\n      </button>\n    </div>\n  </form>\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\" \"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -1080,6 +1066,11 @@ module.exports = "<p>\n  login works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__ = __webpack_require__("./src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1090,18 +1081,52 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
+
 var LoginComponent = /** @class */ (function () {
-    function LoginComponent() {
+    function LoginComponent(userService, router, sharedService) {
+        this.userService = userService;
+        this.router = router;
+        this.sharedService = sharedService;
+        this.errorFlag = false;
+        this.errorMsg = 'Invalid username or password!';
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_5__environments_environment__["a" /* environment */].baseUrl;
     }
     LoginComponent.prototype.ngOnInit = function () {
     };
+    LoginComponent.prototype.login = function () {
+        var _this = this;
+        this.username = this.loginForm.value.username;
+        this.password = this.loginForm.value.password;
+        this.userService.login(this.username, this.password)
+            .subscribe(function (data) {
+            _this.sharedService.user = data;
+            _this.errorFlag = false;
+            _this.router.navigate(['/user', data.userType.toLowerCase()]);
+        }, function (error) {
+            console.log(_this.errorMsg);
+            _this.errorFlag = true;
+        });
+    };
+    LoginComponent.prototype.register = function () {
+        this.router.navigate(['/register']);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NgForm */])
+    ], LoginComponent.prototype, "loginForm", void 0);
     LoginComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-login',
             template: __webpack_require__("./src/app/views/users/login/login.component.html"),
-            styles: [__webpack_require__("./src/app/views/users/login/login.component.css")]
+            styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_4__services_shared_service__["a" /* SharedService */]])
     ], LoginComponent);
     return LoginComponent;
 }());
@@ -1311,17 +1336,10 @@ var SaleHistoryComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/views/users/profile/seller-profile/seller-profile.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/users/profile/seller-profile/seller-profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  seller-profile works!\n</p>\n"
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\" xmlns=\"http://www.w3.org/1999/html\">\n<head>\n  <title>User Profile</title>\n</head>\n<body class=\"body-pink\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" href=\" \"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\" routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n\n<div class=\"supreme-font footer-padding\">\n  <form (ngSubmit)=\"update()\" #f=\"ngForm\">\n    <label class=\"center-input\" style=\"padding-top:60px\">Username</label>\n    <input\n      [(ngModel)]=\"username\"\n      name=\"username\"\n      type=\"text\"\n      class=\"form-control center-input\"\n      placeholder=\"{{username}}\"/>\n    <label class=\"center-input\">First Name</label>\n    <input [(ngModel)]=\"firstName\"\n           name=\"firstName\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{firstName}}\"/>\n    <label class=\"center-input\">Last Name</label>\n    <input [(ngModel)]=\"lastName\"\n           name=\"lastName\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{lastName}}\"/>\n    <label class=\"center-input\">Phone</label>\n    <input  [(ngModel)]=\"phone\"\n            name=\"phone\"\n            type=\"text\"\n            class=\"form-control center-input\"\n            placeholder=\"{{phone}}\"/>\n    <label class=\"center-input\">Email</label>\n    <input [(ngModel)]=\"email\"\n           name=\"email\"\n           type=\"text\"\n           class=\"form-control center-input\"\n           placeholder=\"{{email}}\"/>\n    <br>\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"addNewItem()\">Sell</a >\n    <button class=\"btn btn-outline-danger btn-block center-input\" type=\"submit\" style=\"color: white\">Update</button>\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"updateCreditCard()\">Update Credit Card</a >\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"showOrderHistory()\">Order History</a >\n    <a class=\"btn btn-outline-danger btn-block center-input\" (click)=\"logout()\">Log Out</a >\n  </form>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" routerLink=\"/user\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n"
 
 /***/ }),
 
@@ -1331,6 +1349,10 @@ module.exports = "<p>\n  seller-profile works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SellerProfileComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_user_service_client__ = __webpack_require__("./src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1341,18 +1363,75 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
 var SellerProfileComponent = /** @class */ (function () {
-    function SellerProfileComponent() {
+    function SellerProfileComponent(userService, sharedService, activatedRoute, router) {
+        this.userService = userService;
+        this.sharedService = sharedService;
+        this.activatedRoute = activatedRoute;
+        this.router = router;
     }
     SellerProfileComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.userService.findUserById(_this.sharedService.user['_id']).subscribe(function (returnUser) {
+                //    this.userId = params['uid'];
+                _this.userId = _this.sharedService.user['_id'];
+                //    this.user = returnUser;
+                _this.user = _this.sharedService.user;
+                _this.username = _this.user.username;
+                _this.email = _this.user.email;
+                _this.firstName = _this.user.firstName;
+                _this.lastName = _this.user.lastName;
+                _this.password = _this.user.password;
+                _this.phone = _this.user.phone;
+                console.log(_this.user);
+            });
+        });
     };
+    SellerProfileComponent.prototype.logout = function () {
+        var _this = this;
+        this.userService.logout()
+            .subscribe(function (data) { return _this.router.navigate(['/login']); });
+    };
+    SellerProfileComponent.prototype.update = function () {
+        var _this = this;
+        this.user.username = this.loginForm.value.username;
+        this.user.firstName = this.loginForm.value.firstName;
+        this.user.lastName = this.loginForm.value.lastName;
+        this.user.email = this.loginForm.value.email;
+        this.user.phone = this.loginForm.value.phone;
+        this.userService.updateUser(this.userId, this.user).subscribe(function (returnUser) {
+            _this.user = returnUser;
+            _this.router.navigate(['.'], { relativeTo: _this.activatedRoute });
+        });
+    };
+    SellerProfileComponent.prototype.updateCreditCard = function () {
+        this.router.navigate(['user/seller/creditcard']);
+    };
+    SellerProfileComponent.prototype.showOrderHistory = function () {
+        this.router.navigate(['user/seller/history']);
+    };
+    SellerProfileComponent.prototype.addNewItem = function () {
+        this.router.navigate(['user/seller/new']);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1__angular_forms__["b" /* NgForm */])
+    ], SellerProfileComponent.prototype, "loginForm", void 0);
     SellerProfileComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-seller-profile',
             template: __webpack_require__("./src/app/views/users/profile/seller-profile/seller-profile.component.html"),
-            styles: [__webpack_require__("./src/app/views/users/profile/seller-profile/seller-profile.component.css")]
+            styles: [__webpack_require__("./src/app/style_derek.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__services_user_service_client__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_shared_service__["a" /* SharedService */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
     ], SellerProfileComponent);
     return SellerProfileComponent;
 }());
@@ -1364,7 +1443,7 @@ var SellerProfileComponent = /** @class */ (function () {
 /***/ "./src/app/views/users/register/register.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<head>\n  <title>register</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a>\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/home\">S U P R E M E</a></span>\n  </div>\n</nav>\n<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger\">\n  {{errorMsg}}\n</div>\n<div class=\"supreme-font footer-padding\">\n  <p class=\"center_text white_text\">Register</p>\n  <form (ngSubmit)=\"register()\" #f=\"ngForm\">\n    <div class=\"center_text\">\n      <label for=\"sellercheck\" class=\"white_text\" style=\"word-wrap:break-word\">\n        <input\n          [(ngModel)]=\"userType\"\n          name=\"userType\"\n          id=\"sellercheck\"\n          type=\"checkbox\"\n          value=\"Seller\"\n        /> Seller\n      </label>\n    </div>\n    <label class=\"center_input white_text\">Username</label>\n    <input placeholder=\"Username\"\n           name=\"username\"\n           type=\"text\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #username=\"ngModel\"/>\n    <span class=\"help-block center_text\"\n          *ngIf=\"!username.valid && username.touched\">\n      Please enter username!\n      </span>\n    <label class=\"center_input white_text\">Password</label>\n    <input placeholder=\"Password\"\n           name=\"password\"\n           type=\"password\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #password=\"ngModel\"/>\n    <span class=\"help-block center_text\"\n          *ngIf=\"!password.valid && password.touched\">\n      Please enter username!\n      </span>\n    <label class=\"center_input white_text\">Verify Password</label>\n    <input placeholder=\"Verify your password\"\n           name=\"verifiedPassword\"\n           type=\"text\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #verifiedPassword=\"ngModel\"/>\n    <span class=\"help-block center_text\"\n          *ngIf=\"!verifiedPassword.valid && verifiedPassword.touched\">\n      Please enter username!\n      </span>\n    <div>\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" type=\"submit\"\n              [disabled]=\"!f.valid\">\n        Register\n      </button>\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" routerLink=\"/home\">Cancel\n      </button>\n    </div>\n  </form>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\" href=\" \"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n"
+module.exports = "<head>\n  <title>register</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" routerLink=\"../\"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\"\n                                       routerLink=\"/home\">S U P R E M E</a ></span>\n  </div>\n</nav>\n<div *ngIf=\"errorFlag\"\n     class=\"alert alert-danger\">\n  {{errorMsg}}\n</div>\n<div class=\"supreme-font footer-padding\">\n  <p class=\"center_text white_text\">Register</p >\n  <form (ngSubmit)=\"register()\" #f=\"ngForm\">\n    <div class=\"center_text\">\n      <label for=\"sellercheck\" class=\"white_text\" style=\"word-wrap:break-word\">\n        <input\n          [(ngModel)]=\"userType\"\n          name=\"userType\"\n          id=\"sellercheck\"\n          type=\"checkbox\"\n          value=\"Seller\"\n        /> Seller\n      </label>\n    </div>\n    <label class=\"center_input white_text\">Username</label>\n    <input placeholder=\"Username\"\n           name=\"username\"\n           type=\"text\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #username=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!username.valid && username.touched\">\n      Please enter username!\n      </span>\n    <label class=\"center_input white_text\">Password</label>\n    <input placeholder=\"Password\"\n           name=\"password\"\n           type=\"password\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #password=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!password.valid && password.touched\">\n      Please enter password!\n      </span>\n    <label class=\"center_input white_text\">Verify Password</label>\n    <input placeholder=\"Verify your password\"\n           name=\"verifiedPassword\"\n           type=\"password\"\n           class=\"form-control center_input\"\n           ngModel\n           required\n           #verifiedPassword=\"ngModel\"/>\n    <span class=\"help-block center_input\"\n          *ngIf=\"!verifiedPassword.valid && verifiedPassword.touched\">\n      Please verify password!\n      </span>\n    <div>\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" type=\"submit\"\n              [disabled]=\"!f.valid\">\n        Register\n      </button>\n      <button class=\"btn btn-outline-danger btn-block center_input\" style=\"color: white;\" routerLink=\"/home\">Cancel\n      </button>\n    </div>\n  </form>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a >\n</div>\n</body>\n"
 
 /***/ }),
 
