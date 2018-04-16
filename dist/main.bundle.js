@@ -95,12 +95,14 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__angular_common__ = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -162,7 +164,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_27__angular_http__["b" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_2__app_routing__["a" /* routing */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_24__services_shared_service__["a" /* SharedService */], __WEBPACK_IMPORTED_MODULE_23__services_user_service_client__["a" /* UserService */], { provide: __WEBPACK_IMPORTED_MODULE_25__angular_common__["a" /* APP_BASE_HREF */], useValue: '/' }],
+            providers: [__WEBPACK_IMPORTED_MODULE_24__services_shared_service__["a" /* SharedService */], __WEBPACK_IMPORTED_MODULE_23__services_user_service_client__["a" /* UserService */], { provide: __WEBPACK_IMPORTED_MODULE_25__angular_common__["a" /* APP_BASE_HREF */], useValue: '/' }, __WEBPACK_IMPORTED_MODULE_28__services_item_service_client__["a" /* ItemService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -242,6 +244,97 @@ var appRoutes = [
     { path: 'user/guest/item/:iid', component: __WEBPACK_IMPORTED_MODULE_6__views_item_item_display_item_display_component__["a" /* ItemDisplayComponent */] },
 ];
 var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* RouterModule */].forRoot(appRoutes);
+
+
+/***/ }),
+
+/***/ "./src/app/services/item.service.client.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ItemService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var ItemService = /** @class */ (function () {
+    function ItemService(http, router) {
+        this.http = http;
+        this.router = router;
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].baseUrl;
+    }
+    ItemService.prototype.findItemById = function (itemId) {
+        var url = this.baseUrl + '/api/item/' + itemId;
+        return this.http.get(url).map(function (response) {
+            return response.json();
+        });
+    };
+    ItemService.prototype.findItemByName = function (name) {
+        var url = this.baseUrl + '/api/items/' + name;
+        return this.http.get(url).map(function (response) {
+            //  console.log(response);
+            return response.json();
+        });
+    };
+    ItemService.prototype.findItemByCategory = function (category) {
+        var url = this.baseUrl + '/api/items/category/' + category;
+        return this.http.get(url).map(function (response) {
+            return response.json();
+        });
+    };
+    ItemService.prototype.updateItem = function (itemId, item) {
+        var url = this.baseUrl + '/api/item/' + itemId;
+        return this.http.put(url, item).map(function (response) {
+            return response.json();
+        });
+    };
+    ItemService.prototype.deleteItem = function (itemId) {
+        var url = this.baseUrl + '/api/item/' + itemId;
+        return this.http.delete(url).map(function (response) {
+            return response.json();
+        });
+    };
+    ItemService.prototype.findAllItem = function () {
+        var url = this.baseUrl + '/api/item/all';
+        return this.http.get(url).map(function (response) {
+            return response.json();
+        });
+    };
+    ItemService.prototype.createItem = function (name, price, color, size, category) {
+        var url = this.baseUrl + '/api/item';
+        var body = {
+            name: name,
+            price: price,
+            color: color,
+            size: size,
+            category: category
+        };
+        return this.http.post(url, body).map(function (response) {
+            return response.json();
+        });
+    };
+    ItemService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]])
+    ], ItemService);
+    return ItemService;
+}());
+
 
 
 /***/ }),
@@ -399,7 +492,7 @@ var UserService = /** @class */ (function () {
 /***/ "./src/app/style.css":
 /***/ (function(module, exports) {
 
-module.exports = ".navbar-default {\n  color: white;\n  background-color: #E1282A;\n}\n\n.logo {\n  height: 10%;\n  width: 10%;\n  border: 1px solid black;\n}\n\n.btn-danger {\n  font-family: \"Courier New\";\n  font-weight: bold;\n  background-color: #E1282A;\n  border: 1px solid black;\n}\n\n.link-button:hover {\n  background-color: #E1282A;\n  border: 1px solid black;\n}\n\n.banner {\n  width: 100%;\n}\n\n.body-black {\n  background-color: black;\n}\n\n.center-search {\n  display: block;\n  margint-top: 100px;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.footer-color {\n  background-color: #E1282A;\n}\n\n.supreme-font {\n  font-family: \"Courier New\";\n  color:white;\n\n}\n\n.fa {\n  font-size: 15px;\n}\n\n.fa:hover{\n  color: black;\n}\n\n.white_text {\n  color: white;\n}\n\n.center_input {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 70%;\n  margin-bottom: 8px;\n}\n\n.center_text {\n  text-align: center;\n}\n\n.text-font-size {\n  font-size: 20px;\n}\n\n.input_padding {\n  padding-top: 10px;\n}\n\n.footer-padding {\n  margin-bottom: 200px;\n}\n\n.small-button {\n  width: 50%;\n  font-size: 10px;\n}\n\nbutton {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.a-no-hover:hover {\n  text-decoration: none;\n}\n\n.a-no-color {\n  color: white;\n}\n\n.a-no-visited:visited {\n  color: white;\n}\n\n.form-wrapper {\n  margin: 10px;\n  horiz-align: center;\n  border: 1px solid white;\n}\n\n.full-input {\n  border: 2px solid #E1282A;\n}\n\nlabel {\n  display: block;\n  font-size: 12px;\n  color: #E1282A;\n}\n\n.input-white-text {\n  color: white;\n}\n\n.left-border-white {\n  border-left: 1px solid white;\n}\n\n.corner-button {\n  position: fixed;\n  bottom: 90px;\n  right: 20px;\n  width: 40%;\n  horiz-align: center;\n}\n\n.supreme-text-logo {\n  font-size: 20px;\n  padding-left: 20px\n}\n\n.img-display-size {\n  height: 300px;\n  width: 300px;\n}\n\n.center-image {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n\n}\n\n.black-card {\n  background: black;\n}\n\n.header-margin-bottom{\n  margin-bottom: 20px;\n}\n\n.btn-outline-danger{\n  color:#E1282A;\n}\n\n.left-column{\n  width:25%;\n  height: 100%;\n  float:left;\n}\n\n.right-column{\n  height: 100%;\n}\n\n.full-border {\n  border: 2px solid #E1282A;\n}\n\n.bottom-button {\n  margin-bottom:20px;\n}\n\n.big-box {\n  margin: 2% 3% 3%;\n}\n\n.item-text {\n  color: black;\n  font-family: \"Courier New\";\n}\n\nhtml, body{\n  height: 100%;\n}\n\n.pagination {\n  margin: 50px;\n  display: inline-block;\n}\n\n.pagination a {\n  color: #E1282A;\n  float: left;\n  padding: 8px 16px;\n  text-decoration: none;\n  -webkit-transition: background-color .3s;\n  transition: background-color .3s;\n  border: 1px solid #E1282A;\n}\n\n.pagination a:hover:not(.active) {background-color: white;}\n\n.card-columns{\n  padding-top:10px;\n  margin-bottom: 50px;\n}\n\n.text-black{\n  color: black;\n}\n"
+module.exports = ".navbar-default {\n  color: white;\n  background-color: #E1282A;\n}\n\n.logo {\n  height: 10%;\n  width: 10%;\n  border: 1px solid black;\n}\n\n.btn-danger {\n  font-family: \"Courier New\";\n  font-weight: bold;\n  background-color: #E1282A;\n  border: 1px solid black;\n}\n\n.link-button:hover {\n  background-color: #E1282A;\n  border: 1px solid black;\n}\n\n.banner {\n  width: 100%;\n}\n\n.body-black {\n  background-color: black;\n}\n\n.center-search {\n  display: block;\n  margint-top: 100px;\n  margin-left: auto;\n  margin-right: auto;\n}\n\n.footer-color {\n  background-color: #E1282A;\n}\n\n.supreme-font {\n  font-family: \"Courier New\";\n  color:white;\n\n}\n\n.fa {\n  font-size: 15px;\n}\n\n.fa:hover{\n  color: black;\n}\n\n.white_text {\n  color: white;\n}\n\n.center_input {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n  width: 70%;\n  margin-bottom: 8px;\n}\n\n.center_text {\n  text-align: center;\n}\n\n.text-font-size {\n  font-size: 20px;\n}\n\n.input_padding {\n  padding-top: 10px;\n}\n\n.footer-padding {\n  margin-bottom: 100%;\n}\n\n.small-button {\n  width: 50%;\n  font-size: 10px;\n}\n\nbutton {\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.a-no-hover:hover {\n  text-decoration: none;\n}\n\n.a-no-color {\n  color: white;\n}\n\n.a-no-visited:visited {\n  color: white;\n}\n\n.form-wrapper {\n  margin: 10px;\n  horiz-align: center;\n  border: 1px solid white;\n}\n\n.full-input {\n  border: 2px solid #E1282A;\n}\n\nlabel {\n  display: block;\n  font-size: 12px;\n  color: #E1282A;\n}\n\n.input-white-text {\n  color: white;\n}\n\n.left-border-white {\n  border-left: 1px solid white;\n}\n\n.corner-button {\n  position: fixed;\n  bottom: 90px;\n  right: 20px;\n  width: 40%;\n  horiz-align: center;\n}\n\n.supreme-text-logo {\n  font-size: 20px;\n  padding-left: 20px\n}\n\n.img-display-size {\n  height: 300px;\n  width: 300px;\n}\n\n.center-image {\n  display: block;\n  margin-left: auto;\n  margin-right: auto;\n\n}\n\n.black-card {\n  background: black;\n}\n\n.header-margin-bottom{\n  margin-bottom: 20px;\n}\n\n.btn-outline-danger{\n  color:#E1282A;\n}\n\n.left-column{\n  width:25%;\n  height: 100%;\n  float:left;\n}\n\n.right-column{\n  height: 100%;\n}\n\n.full-border {\n  border: 2px solid #E1282A;\n}\n\n.bottom-button {\n  margin-bottom:20px;\n}\n\n.big-box {\n  margin: 2% 3% 3%;\n}\n\n.item-text {\n  color: black;\n  font-family: \"Courier New\";\n}\n\nhtml, body{\n  height: 100%;\n}\n\n.pagination {\n  margin: 50px;\n  display: inline-block;\n}\n\n.pagination a {\n  color: #E1282A;\n  float: left;\n  padding: 8px 16px;\n  text-decoration: none;\n  -webkit-transition: background-color .3s;\n  transition: background-color .3s;\n  border: 1px solid #E1282A;\n}\n\n.pagination a:hover:not(.active) {background-color: white;}\n\n.card-columns{\n  padding-top:10px;\n  margin-bottom: 50px;\n}\n\n.text-black{\n  color: black;\n}\n"
 
 /***/ }),
 
@@ -460,17 +553,10 @@ var AdminItemEditComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/views/admin/admin-profile/admin-profile.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/admin/admin-profile/admin-profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  admin-profile works!\n</p>\n"
+module.exports = "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <title>Admin</title>\n</head>\n<body class=\"body-black\">\n<nav class=\"navbar navbar-default header-margin-bottom\">\n  <div class=\"supreme-font\">\n    <a class=\"white_text\" href=\" \"><i class=\"fa fa-chevron-left\"></i></a >\n    <span class=\"supreme-text-logo\"><a class=\"a-no-color a-no-hover a-no-visited\" routerLink=\"/loggedinhome/user\">S U P R E M E</a ></span>\n\n  </div>\n</nav>\n\n<div class=\"supreme-font footer-padding\">\n  <p class=\"center_text supreme-font\">Admin</p >\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"editItem()\">Edit Items</a >\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"editUser()\">Edit User</a >\n  <a class=\"btn btn-outline-danger btn-block center_input\" (click)=\"logout()\">Logout</a >\n</div>\n\n<div class=\"card-footer footer-color fixed-bottom\">\n  <a class=\"pull-right white_text\"><i class=\"fa fa-user\"></i></a >\n</div>\n\n</body>\n"
 
 /***/ }),
 
@@ -480,6 +566,7 @@ module.exports = "<p>\n  admin-profile works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AdminProfileComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -490,18 +577,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var AdminProfileComponent = /** @class */ (function () {
-    function AdminProfileComponent() {
+    function AdminProfileComponent(router) {
+        this.router = router;
     }
     AdminProfileComponent.prototype.ngOnInit = function () {
+    };
+    AdminProfileComponent.prototype.editItem = function () {
+        this.router.navigate(['user/admin/edititem']);
+    };
+    AdminProfileComponent.prototype.editUser = function () {
+        this.router.navigate(['user/admin/edituser']);
+    };
+    AdminProfileComponent.prototype.logout = function () {
+        this.router.navigate(['login']);
     };
     AdminProfileComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-admin-profile',
             template: __webpack_require__("./src/app/views/admin/admin-profile/admin-profile.component.html"),
-            styles: [__webpack_require__("./src/app/views/admin/admin-profile/admin-profile.component.css")]
+            styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], AdminProfileComponent);
     return AdminProfileComponent;
 }());
@@ -713,7 +811,7 @@ var SummaryComponent = /** @class */ (function () {
 /***/ "./src/app/views/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<head>\n    <title>home</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default\">\n    <span class=\"supreme-font\">S U P R E M E</span>\n    <div>\n        <a class=\"btn btn-danger pull-right link-button\" routerLink=\"/login\" style=\"margin-left: 5px\">Login</a>\n        <a class=\"btn btn-danger pull-right link-button\" routerLink=\"/register\">Register</a>\n    </div>\n</nav>\n\n<div id=\"carouselExampleControls\" class=\"carousel slide\" data-ride=\"carousel\">\n    <div class=\"carousel-inner\" style=\"height:270px\">\n        <div class=\"carousel-item active\">\n            <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_lv.jpg\" alt=\"First slide\">\n        </div>\n        <div class=\"carousel-item\">\n            <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_rimova.jpg\" alt=\"Second slide\">\n        </div>\n        <div class=\"carousel-item\">\n            <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_tnf.jpg\" alt=\"Third slide\">\n        </div>\n    </div>\n    <a class=\"carousel-control-prev\" href=\"#carouselExampleControls\" role=\"button\" data-slide=\"prev\">\n        <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n        <span class=\"sr-only\">Previous</span>\n    </a>\n    <a class=\"carousel-control-next\" href=\"#carouselExampleControls\" role=\"button\" data-slide=\"next\">\n        <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n        <span class=\"sr-only\">Next</span>\n    </a>\n</div>\n\n<div style=\"margin-top: 10px\">\n    <div>\n        <form style=\"padding-left: 30%\">\n            <input class=\"col-7\" type=\"text\" placeholder=\"Search..\" name=\"search\">\n            <button type=\"submit\"><i class=\"fa fa-search\"></i></button>\n        </form>\n    </div>\n</div>\n\n<div class=\"card-columns\" style=\"padding-top: 10px\">\n   <div class=\"card text-center\">\n    <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n    <img class=\"card-img-top\" src=\"../../../assets/Top.png\" alt=\"Card image cap\" href=\"user/searchresult\">\n    </a>\n    <div class=\"card-body\">\n       <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Top</h5>\n    </div>\n\n   </div>\n    <div class=\"card p-3 text-center\">\n      <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Sweatshirt.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Sweatshirt</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Accessory.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Accessory</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center p-3\">\n      <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Jacket.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Jacket</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Skate.jpg\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Skate</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Pant.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Pants</h5>\n        </div>\n    </div>\n\n    <div class=\"card p-3 text-center\">\n      <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Bag.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Bag</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Hat.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Hat</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a routerLink=\"/user/searchresult\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Shirt.png\" alt=\"Card image cap\">\n       </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" routerLink=\"/user/searchresult\">Hat</h5>\n        </div>\n    </div>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n    <a class=\"pull-right white_text\" href=\".\"><i class=\"fa fa-user\" style=\"color: #E1282A\"></i></a>\n</div>\n</body>\n"
+module.exports = "<head>\n    <title>home</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default\">\n    <span class=\"supreme-font\">S U P R E M E</span>\n    <div>\n        <a class=\"btn btn-danger pull-right link-button\" routerLink=\"/login\" style=\"margin-left: 5px\">Login</a>\n        <a class=\"btn btn-danger pull-right link-button\" routerLink=\"/register\">Register</a>\n    </div>\n</nav>\n\n<div id=\"carouselExampleControls\" class=\"carousel slide\" data-ride=\"carousel\">\n    <div class=\"carousel-inner\" style=\"height:270px\">\n        <div class=\"carousel-item active\">\n            <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_lv.jpg\" alt=\"First slide\">\n        </div>\n        <div class=\"carousel-item\">\n            <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_rimova.jpg\" alt=\"Second slide\">\n        </div>\n        <div class=\"carousel-item\">\n            <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_tnf.jpg\" alt=\"Third slide\">\n        </div>\n    </div>\n    <a class=\"carousel-control-prev\" href=\"#carouselExampleControls\" role=\"button\" data-slide=\"prev\">\n        <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n        <span class=\"sr-only\">Previous</span>\n    </a>\n    <a class=\"carousel-control-next\" href=\"#carouselExampleControls\" role=\"button\" data-slide=\"next\">\n        <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n        <span class=\"sr-only\">Next</span>\n    </a>\n</div>\n\n<div style=\"margin-top: 10px\">\n    <div>\n        <form class=\"form-inline\" style=\"padding-left: 30%\" (ngSubmit)=\"search()\" #f=\"ngForm\">\n            <input class=\"col-7 form-control\"\n                   type=\"text\"\n                   placeholder=\"Search..\"\n                   name=\"searchContent\"\n                   [(ngModel)]=\"searchContent\">\n            <button type=\"submit\"><i class=\"fa fa-search\"></i></button>\n        </form>\n    </div>\n</div>\n\n<div class=\"card-columns\" style=\"padding-top: 10px\">\n   <div class=\"card text-center\">\n    <a (click)=\"searchTop()\" class=\"a-no-hover\">\n    <img class=\"card-img-top\" src=\"../../../assets/Top.png\" alt=\"Card image cap\" href=\"user/searchresult\">\n    </a>\n    <div class=\"card-body\">\n       <h5 class=\"card-title\" (click)=\"searchTop()\">Top</h5>\n    </div>\n\n   </div>\n    <div class=\"card p-3 text-center\">\n      <a (click)=\"searchSweatershirt()\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Sweatshirt.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" (click)=\"searchSweatershirt()\">Sweatshirt</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a (click)=\"searchAccessory()\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Accessory.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" (click)=\"searchAccessory()\">Accessory</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center p-3\">\n      <a (click)=\"searchJacket()\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Jacket.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" (click)=\"searchJacket()\">Jacket</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a (click)=\"searchSkate()\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Skate.jpg\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" (click)=\"searchSkate()\">Skate</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a (click)=\"searchPants()\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Pant.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" (click)=\"searchPants()\">Pants</h5>\n        </div>\n    </div>\n\n    <div class=\"card p-3 text-center\">\n      <a (click)=\"searchBag()\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Bag.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" (click)=\"searchBag()\">Bag</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a (click)=\"searchHat()\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Hat.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" (click)=\"searchHat()\">Hat</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a (click)=\"searchShirt()\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../assets/Shirt.png\" alt=\"Card image cap\">\n       </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" (click)=\"searchShirt()\">Shirt</h5>\n        </div>\n    </div>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n    <a class=\"pull-right white_text\" href=\".\"><i class=\"fa fa-user\" style=\"color: #E1282A\"></i></a>\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -723,6 +821,9 @@ module.exports = "<head>\n    <title>home</title>\n</head>\n<body class=\"body-b
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -733,18 +834,129 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+    function HomeComponent(itemService, activatedRoute, router) {
+        this.itemService = itemService;
+        this.activatedRoute = activatedRoute;
+        this.router = router;
+        this.items = [{}];
     }
-    HomeComponent.prototype.ngOnInit = function () {
+    HomeComponent.prototype.ngOnInit = function () { };
+    HomeComponent.prototype.search = function () {
+        var _this = this;
+        this.itemName = this.homeForm.value.searchContent;
+        this.itemService.findItemByName(this.itemName).subscribe(function (returnItems) {
+            _this.items = returnItems;
+            console.log(_this.items);
+        });
+        this.router.navigate(['user/searchresult']);
     };
+    HomeComponent.prototype.searchTop = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Top').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    HomeComponent.prototype.searchSweatershirt = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Sweatershirt').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    HomeComponent.prototype.searchAccessory = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Accessory').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    HomeComponent.prototype.searchJacket = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Jacket').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    HomeComponent.prototype.searchSkate = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Skate').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    HomeComponent.prototype.searchPants = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Pants').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    HomeComponent.prototype.searchBag = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Bag').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    HomeComponent.prototype.searchHat = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Hat').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    HomeComponent.prototype.searchShirt = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Shirt').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* NgForm */])
+    ], HomeComponent.prototype, "homeForm", void 0);
     HomeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-home',
             template: __webpack_require__("./src/app/views/home/home.component.html"),
             styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_item_service_client__["a" /* ItemService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], HomeComponent);
     return HomeComponent;
 }());
@@ -753,17 +965,10 @@ var HomeComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/views/home/loggedin-home/loggedin-home.component.css":
-/***/ (function(module, exports) {
-
-module.exports = ""
-
-/***/ }),
-
 /***/ "./src/app/views/home/loggedin-home/loggedin-home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<p>\n  loggedin-home works!\n</p>\n"
+module.exports = "<head>\n    <title>home</title>\n</head>\n<body class=\"body-black\">\n\n<nav class=\"navbar navbar-default\">\n    <span class=\"supreme-font\">S U P R E M E</span>\n    <div>\n        <span class=\"supreme-font pull-right\" style=\"margin-left: 5px\">Welcome {{username}}!</span>\n    </div>\n</nav>\n\n<div id=\"carouselExampleControls\" class=\"carousel slide\" data-ride=\"carousel\">\n    <div class=\"carousel-inner\" style=\"height:270px\">\n        <div class=\"carousel-item active\">\n            <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_lv.jpg\" alt=\"First slide\">\n        </div>\n        <div class=\"carousel-item\">\n            <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_rimova.jpg\" alt=\"Second slide\">\n        </div>\n        <div class=\"carousel-item\">\n            <img class=\"d-block w-100\" src=\"../../../assets/full_supreme_tnf.jpg\" alt=\"Third slide\">\n        </div>\n    </div>\n    <a class=\"carousel-control-prev\" href=\"#carouselExampleControls\" role=\"button\" data-slide=\"prev\">\n        <span class=\"carousel-control-prev-icon\" aria-hidden=\"true\"></span>\n        <span class=\"sr-only\">Previous</span>\n    </a>\n    <a class=\"carousel-control-next\" href=\"#carouselExampleControls\" role=\"button\" data-slide=\"next\">\n        <span class=\"carousel-control-next-icon\" aria-hidden=\"true\"></span>\n        <span class=\"sr-only\">Next</span>\n    </a>\n</div>\n\n<div style=\"margin-top: 10px\">\n    <div>\n        <form style=\"padding-left: 30%\" (ngSubmit)=\"search()\" #f=\"ngForm\">\n            <input class=\"col-7\" type=\"text\" placeholder=\"Search..\" name=\"search\">\n            <button type=\"submit\"><i class=\"fa fa-search\"></i></button>\n        </form>\n    </div>\n</div>\n\n<div class=\"card-columns\" style=\"padding-top: 10px\">\n   <div class=\"card text-center\">\n    <a (click)=\"searchTop()\" class=\"a-no-hover\">\n    <img class=\"card-img-top\" src=\"../../../../assets/Top.png\" alt=\"Card image cap\" href=\"user/searchresult\">\n    </a>\n    <div class=\"card-body\">\n       <h5 class=\"card-title\" (click)=\"searchTop()\">Top</h5>\n    </div>\n\n   </div>\n    <div class=\"card p-3 text-center\">\n      <a (click)=\"searchSweatershirt()\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../../assets/Sweatshirt.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" (click)=\"searchSweatershirt()\">Sweatshirt</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a (click)=\"searchAccessory()\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../../assets/Accessory.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" (click)=\"searchAccessory()\">Accessory</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center p-3\">\n      <a (click)=\"searchJacket()\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../../assets/Jacket.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" (click)=\"searchJacket()\">Jacket</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a (click)=\"searchSkate()\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../../assets/Skate.jpg\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" (click)=\"searchSkate()\">Skate</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a (click)=\"searchPants()\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../../assets/Pant.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" (click)=\"searchPants()\">Pants</h5>\n        </div>\n    </div>\n\n    <div class=\"card p-3 text-center\">\n      <a (click)=\"searchBag()\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../../assets/Bag.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" (click)=\"searchBag()\">Bag</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a (click)=\"searchHat()\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../../assets/Hat.png\" alt=\"Card image cap\">\n      </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" (click)=\"searchHat()\">Hat</h5>\n        </div>\n    </div>\n\n    <div class=\"card text-center\">\n      <a (click)=\"searchShirt()\" class=\"a-no-hover\">\n        <img class=\"card-img-top\" src=\"../../../../assets/Shirt.png\" alt=\"Card image cap\">\n       </a>\n        <div class=\"card-body\">\n            <h5 class=\"card-title\" (click)=\"searchShirt()\">Shirt</h5>\n        </div>\n    </div>\n\n</div>\n<div class=\"card-footer footer-color fixed-bottom\">\n    <a class=\"pull-right white_text\" (click)=\"profile()\"><i class=\"fa fa-user\"></i></a>\n</div>\n</body>\n"
 
 /***/ }),
 
@@ -773,6 +978,11 @@ module.exports = "<p>\n  loggedin-home works!\n</p>\n"
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoggedinHomeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__("./node_modules/@angular/forms/esm5/forms.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_item_service_client__ = __webpack_require__("./src/app/services/item.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_user_service_client__ = __webpack_require__("./src/app/services/user.service.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -783,18 +993,158 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
+
+
 var LoggedinHomeComponent = /** @class */ (function () {
-    function LoggedinHomeComponent() {
+    function LoggedinHomeComponent(itemService, userService, activatedRoute, router, sharedService) {
+        this.itemService = itemService;
+        this.userService = userService;
+        this.activatedRoute = activatedRoute;
+        this.router = router;
+        this.sharedService = sharedService;
+        this.items = [{}];
     }
     LoggedinHomeComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.params
+            .subscribe(function (params) {
+            return _this.userService.findUserById(_this.sharedService.user['_id']).subscribe(function (returnUser) {
+                _this.userId = _this.sharedService.user['_id'];
+                console.log(_this.userId);
+                _this.user = returnUser;
+                _this.username = _this.user.username;
+                console.log(_this.username);
+            });
+        });
     };
+    LoggedinHomeComponent.prototype.profile = function () {
+        if (this.user.userType === 'Buyer') {
+            this.router.navigate(['user/buyer']);
+        }
+        if (this.user.userType === 'Seller') {
+            this.router.navigate(['user/seller']);
+        }
+        if (this.user.userType === 'Admin') {
+            this.router.navigate(['user/admin']);
+        }
+    };
+    LoggedinHomeComponent.prototype.search = function () {
+        var _this = this;
+        this.itemName = this.homeForm.value.searchContent;
+        this.itemService.findItemByName(this.itemName).subscribe(function (returnItems) {
+            _this.items = returnItems;
+            console.log(_this.items);
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchTop = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Top').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchSweatershirt = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Sweatershirt').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchAccessory = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Accessory').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchJacket = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Jacket').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchSkate = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Skate').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchPants = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Pants').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchBag = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Bag').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchHat = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Hat').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    LoggedinHomeComponent.prototype.searchShirt = function () {
+        var _this = this;
+        this.activatedRoute.params.subscribe(function (params) {
+            return _this.itemService.findItemByCategory('Shirt').subscribe(function (returnItems) {
+                _this.items = returnItems;
+                console.log(_this.items);
+            });
+        });
+        this.router.navigate(['user/searchresult']);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])('f'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2__angular_forms__["b" /* NgForm */])
+    ], LoggedinHomeComponent.prototype, "homeForm", void 0);
     LoggedinHomeComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-loggedin-home',
             template: __webpack_require__("./src/app/views/home/loggedin-home/loggedin-home.component.html"),
-            styles: [__webpack_require__("./src/app/views/home/loggedin-home/loggedin-home.component.css")]
+            styles: [__webpack_require__("./src/app/style.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__services_item_service_client__["a" /* ItemService */],
+            __WEBPACK_IMPORTED_MODULE_4__services_user_service_client__["a" /* UserService */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
+            __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_5__services_shared_service__["a" /* SharedService */]])
     ], LoggedinHomeComponent);
     return LoggedinHomeComponent;
 }());
