@@ -76,6 +76,10 @@ export class SellerProfileComponent implements OnInit {
   }
   addNewItem() {
     this.router.navigate(['user/seller/new']);
-
   }
+
+  goToListing() {
+    this.router.navigate(['user/seller/listing']);
+  }
+
 }
