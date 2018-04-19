@@ -9,14 +9,23 @@ Item.updateItem = updateItem;
 Item.findItemByCategory = findItemByCategory;
 Item.findItemByName = findItemByName;
 Item.findAll = findAll;
+Item.findItemBySellerId = findItemBySellerId;
+Item.findItemByBuyerId = findItemByBuyerId;
+Item.findSellerListing = findSellerListing;
 
 function findAll() {
   return Item.find();
 }
+function findItemBySellerId(userId) {
+  return Item.find({_seller: userId, _buyer: {$exists: true}});
+}
+
+function findItemByBuyerId(userId) {
+  return Item.find({_buyer: userId});
+}
 
 function findItemByName(name) {
-  return Item.find({'name': {'$regex': name}});
-}
+  return Item.find({name: name});}
 
 function findItemById(itemId) {
   return Item.findById({_id: itemId});
@@ -37,7 +46,7 @@ function updateItem(itemId, item) {
           url: item.url,
           category: item.category,
           size: item.size,
-          isRecommended: item.isRecommended
+          _buyer: item._buyer
         }
       }
     );
@@ -50,6 +59,10 @@ function deleteItem(itemId) {
 
 function createItem(item) {
   return Item.create(item);
+}
+
+function findSellerListing(userId) {
+  return Item.find({_seller: userId, _buyer: undefined});
 }
 
 module.exports = Item;

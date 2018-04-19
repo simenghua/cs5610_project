@@ -6,7 +6,7 @@
 <body class="body-pink">
 <nav class="navbar navbar-default header-margin-bottom">
   <div class="supreme-font">
-    <a class="white_text" href=" "><i class="fa fa-chevron-left"></i></a >
+    <a class="white_text" routerLink="/loggedinhome/user"><i class="fa fa-chevron-left"></i></a >
     <span class="supreme-text-logo"><a class="a-no-color a-no-hover a-no-visited" routerLink="/loggedinhome/user">S U P R E M E</a ></span>
 
   </div>
@@ -50,13 +50,13 @@
     <button class="btn btn-outline-danger btn-block center-input" type="submit" style="color: white">Update</button>
     <a class="btn btn-outline-danger btn-block center-input" (click)="updateCreditCard()">Update Credit Card</a >
     <a class="btn btn-outline-danger btn-block center-input" (click)="goToListing()">Listing</a >
-    <a class="btn btn-outline-danger btn-block center-input" (click)="showOrderHistory()">Order History</a >
+    <a class="btn btn-outline-danger btn-block center-input" (click)="showOrderHistory()">Sale History</a >
     <a class="btn btn-outline-danger btn-block center-input" (click)="logout()">Log Out</a >
   </form>
 
 </div>
 <div class="card-footer footer-color fixed-bottom">
-  <a class="pull-right white_text" routerLink="/user"><i class="fa fa-user"></i></a >
+  <a class="pull-right white_text" routerLink="/user/seller"><i class="fa fa-user"></i></a >
 </div>
 
 </body>

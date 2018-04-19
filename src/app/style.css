@@ -29,7 +29,6 @@
   background-color: black;
 }
 
-
 .center-search {
   display: block;
   margint-top: 100px;
@@ -163,12 +162,6 @@ label {
 
 
 
-
-
-
-
-
-
 .btn-outline-danger{
   color:#E1282A;
 }
@@ -227,4 +220,8 @@ html, body{
 }
 .text-black{
   color: black;
+}
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }

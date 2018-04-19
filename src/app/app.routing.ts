@@ -19,6 +19,9 @@ import { SaleHistoryComponent } from './views/users/profile/seller-profile/sale-
 import { AdminProfileComponent } from './views/admin/admin-profile/admin-profile.component';
 import { LoggedinHomeComponent } from './views/home/loggedin-home/loggedin-home.component';
 import { CreditcardComponent } from './views/users/creditcard/creditcard.component';
+import {SellerListingComponent} from './views/users/profile/seller-profile/seller-listing/seller-listing.component';
+import {FlickrImageComponent} from './views/item/item-edit/flickr-image/flickr-image.component';
+import {AuthGuard} from './services/auth-guard.service';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -26,24 +29,27 @@ const appRoutes: Routes = [
   {path: 'loggedinhome/user', component: LoggedinHomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'user/admin', component: AdminProfileComponent},
-  {path: 'user/buyer', component: BuyerProfileComponent},
-  {path: 'user/seller', component: SellerProfileComponent},
-  {path: 'user/admin/:uid/edititem', component: AdminItemEditComponent},
-  {path: 'user/admin/:uid/edituser', component: AdminUserEditComponent},
-  {path: 'user/seller/new', component: ItemEditComponent},
-  {path: 'user/seller/item/:iid', component: ItemEditComponent},
-  {path: 'user/:uid/item/:iid', component: ItemDisplayComponent},
-  {path: 'user/buyer/:uid/cart', component: CartComponent},
-  {path: 'user/buyer/:uid/payment', component: PaymentComponent},
-  {path: 'user/buyer/:uid/summary', component: SummaryComponent},
-  {path: 'user/buyer/history', component: OrderHistoryComponent},
-  {path: 'user/seller/history', component: SaleHistoryComponent},
-  {path: 'user/seller/creditcard', component: CreditcardComponent},
-  {path: 'user/buyer/creditcard', component: CreditcardComponent},
-  {path: 'user/searchresult', component: ItemListComponent},
+  {path: 'user/admin', component: AdminProfileComponent, canActivate: [AuthGuard]},
+  {path: 'user/buyer', component: BuyerProfileComponent, canActivate: [AuthGuard]},
+  {path: 'user/seller', component: SellerProfileComponent, canActivate: [AuthGuard]},
+  {path: 'user/admin/edititem', component: AdminItemEditComponent, canActivate: [AuthGuard]},
+  {path: 'user/admin/edituser', component: AdminUserEditComponent, canActivate: [AuthGuard]},
+  {path: 'user/seller/new', component: ItemEditComponent, canActivate: [AuthGuard]},
+  {path: 'user/seller/item/:iid', component: ItemEditComponent, canActivate: [AuthGuard]},
+  {path: 'user/item/:iid', component: ItemDisplayComponent, canActivate: [AuthGuard]},
+  {path: 'user/buyer/cart', component: CartComponent, canActivate: [AuthGuard]},
+  {path: 'user/buyer/payment', component: PaymentComponent, canActivate: [AuthGuard]},
+  {path: 'user/buyer/summary', component: SummaryComponent, canActivate: [AuthGuard]},
+  {path: 'user/buyer/history', component: OrderHistoryComponent, canActivate: [AuthGuard]},
+  {path: 'user/seller/history', component: SaleHistoryComponent, canActivate: [AuthGuard]},
+  {path: 'user/seller/creditcard', component: CreditcardComponent, canActivate: [AuthGuard]},
+  {path: 'user/buyer/creditcard', component: CreditcardComponent, canActivate: [AuthGuard]},
+  {path: 'user/searchresult', component: ItemListComponent, canActivate: [AuthGuard]},
   {path: 'user/guest/searchresult', component: ItemListComponent},
   {path: 'user/guest/item/:iid', component: ItemDisplayComponent},
+  {path: 'user/seller/listing', component: SellerListingComponent, canActivate: [AuthGuard]},
+  {path: 'user/seller/item/:iid/flickr', component: FlickrImageComponent, canActivate: [AuthGuard]},
+  {path: 'user/chooser', component: ChooserComponent, canActivate: [AuthGuard]},
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);
