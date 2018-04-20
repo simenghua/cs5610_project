@@ -16,7 +16,7 @@ export class FlickrImageComponent implements OnInit {
   photos: [any] = [{photo: ''}];
   errorMsg: string;
   errorFlag: boolean;
-  searchText: string;
+  searchContent: string;
 
 
   constructor(private flickrService: FlickrService,
@@ -43,7 +43,7 @@ export class FlickrImageComponent implements OnInit {
 
   searchPhotos() {
     this.flickrService
-      .searchPhotos(this.searchText)
+      .searchPhotos(this.searchContent)
       .subscribe(
         (data: any) => {
           let val = data._body;

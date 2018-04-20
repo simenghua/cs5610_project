@@ -69,4 +69,8 @@ export class CreditcardComponent implements OnInit {
       this.router.navigate(['../'], {relativeTo: this.activatedRoute});
     });
   }
+
+  goProfile() {
+    this.router.navigate(['user', this.userType.toLowerCase()]);
+  }
 }
