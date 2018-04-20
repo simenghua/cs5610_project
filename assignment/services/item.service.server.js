@@ -4,8 +4,8 @@ module.exports = function (app) {
   var multer = require('multer');
   var upload = multer({dest: __dirname + '/../../src/assets/uploads'});
 
-  var baseUrl = "http://localhost:3100"; // for local
-//  var baseUrl = "https://shua-webdev-project.herokuapp.com"; // for development
+//  var baseUrl = "http://localhost:3100"; // for local
+  var baseUrl = "https://shua-webdev-project.herokuapp.com"; // for development
 
 
   app.put("/api/item/:itemId", updateItem);
