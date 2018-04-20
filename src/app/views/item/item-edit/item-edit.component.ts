@@ -3,6 +3,7 @@ import {NgForm} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SharedService} from '../../../services/shared.service';
 import {ItemService} from '../../../services/item.service.client';
+import {environment} from '../../../../environments/environment.prod';
 
 @Component({
   selector: 'app-item-edit',
@@ -22,6 +23,7 @@ export class ItemEditComponent implements OnInit {
   size: String;
   errorFlag: boolean;
   errorMsg: String;
+  baseUrl = environment.baseUrl;
 
   constructor(private itemService: ItemService,
               private sharedService: SharedService,
@@ -48,7 +50,7 @@ export class ItemEditComponent implements OnInit {
               this.category = this.item.category;
               this.size = this.item.size;
             });
-           } else {
+          } else {
             this.item = {name: '', price: '', color: '', url: '', category: '', size: ''};
             this.name = this.item.name;
             this.color = this.item.color;
@@ -69,11 +71,10 @@ export class ItemEditComponent implements OnInit {
     this.item.category = this.loginForm.value.category;
     this.item.size = this.loginForm.value.size;
     if (this.item.name === '' || this.item.name === undefined ||
-        this.item.color === '' || this.item.color === undefined ||
-        this.item.price === '' || this.item.price === undefined ||
-        this.item.url === '' || this.item.url === undefined ||
-        this.item.category === '' || this.item.category === undefined ||
-        this.item.size === '' || this.item.size === undefined) {
+      this.item.color === '' || this.item.color === undefined ||
+      this.item.price === '' || this.item.price === undefined ||
+      this.item.category === '' || this.item.category === undefined ||
+      this.item.size === '' || this.item.size === undefined) {
       this.errorFlag = true;
     } else {
       if (this.itemId !== undefined) {
@@ -107,21 +108,22 @@ export class ItemEditComponent implements OnInit {
     this.item.price = this.loginForm.value.price;
     this.item.category = this.loginForm.value.category;
     this.item.size = this.loginForm.value.size;
-    // if (this.item.name === '' || this.item.name === undefined ||
-    //   this.item.color === '' || this.item.color === undefined ||
-    //   this.item.price === '' || this.item.price === undefined ||
-    //   this.item.url === '' || this.item.url === undefined ||
-    //   this.item.category === '' || this.item.category === undefined ||
-    //   this.item.size === '' || this.item.size === undefined) {
-    //   this.errorFlag = true;
-    // } else {
+    if (this.item.name === '' || this.item.name === undefined ||
+      this.item.color === '' || this.item.color === undefined ||
+      this.item.price === '' || this.item.price === undefined ||
+      this.item.category === '' || this.item.category === undefined ||
+      this.item.size === '' || this.item.size === undefined) {
+      this.errorFlag = true;
+    } else {
       if (this.itemId !== undefined) {
         this.router.navigate(['/user/seller/item/' + this.itemId + '/flickr']);
       } else {
-          this.itemService.createItem(this.sellerId, this.item.name, this.item.price,
+        this.itemService.createItem(this.sellerId, this.item.name, this.item.price,
           this.item.color, this.item.size, this.item.category, this.item.url).subscribe((returnItem: any) => {
-          this.router.navigate(['/user/seller/item/' + returnItem._id + '/flickr']);
+            this.itemId = returnItem._id;
+            this.router.navigate(['/user/seller/item/' + this.itemId + '/flickr']);
         });
       }
     }
+  }
 }

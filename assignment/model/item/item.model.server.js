@@ -25,7 +25,7 @@ function findItemByBuyerId(userId) {
 }
 
 function findItemByName(name) {
-  return Item.find({name: name});}
+  return Item.find({"name": {'$regex': name}});}
 
 function findItemById(itemId) {
   return Item.findById({_id: itemId});

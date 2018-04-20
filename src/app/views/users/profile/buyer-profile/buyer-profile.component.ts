@@ -68,7 +68,7 @@ export class BuyerProfileComponent implements OnInit {
     this.router.navigate(['user/buyer/history']);
   }
 
-  goCart(){
+  goCart() {
     this.router.navigate(['user/buyer/cart']);
   }
 }

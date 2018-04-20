@@ -1,7 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 var connectionString ='mongodb://127.0.0.1:27017/webproject';
-// var connectionString = 'mongodb://admin:admin@ds263707.mlab.com:63707/heroku_j5ljcbl0';
+// var connectionString = 'mongodb://webproject:19911106@ds251849.mlab.com:51849/heroku_j7zww9sv';
 mongoose.connect(connectionString);
 
 const bodyParser = require('body-parser');
