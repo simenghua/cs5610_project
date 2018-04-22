@@ -1,7 +1,7 @@
 module.exports = function (app) {
   var facebookConfig = {
-    clientID: '580047185688152',
-    clientSecret: '273149878d88693e7babef94d12af08a',
+    clientID: '220489205372000',
+    clientSecret: '6073ac235bbed47605f58f9e8d4f45ef',
     callbackURL: 'https://shua-webdev-project.herokuapp.com/auth/facebook/callback'
   };
 
