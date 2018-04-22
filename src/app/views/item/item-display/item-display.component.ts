@@ -111,4 +111,12 @@ export class ItemDisplayComponent implements OnInit {
     }
   }
 
+  goHome() {
+    if (this.user.userType === 'Buyer' || this.user.userType === 'Admin' || this.user.userType === 'Seller') {
+      this.router.navigate(['loggedinhome/user']);
+    } else {
+      this.router.navigate(['home']);
+    }
+  }
+
 }
